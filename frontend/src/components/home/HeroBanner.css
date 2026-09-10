@@ -1,0 +1,340 @@
+
+.hero-wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 5rem;
+  box-sizing: border-box;
+  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+.top-navbar {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-logo img{
+    width: 250px;
+}
+
+.nav-pills {
+  display: flex;
+  background-color: #ebe5dc;
+  padding: 4px;
+  border-radius: 30px;
+  gap: 4px;
+}
+
+.pill-btn {
+  border: none;
+  background: transparent;
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.pill-btn.active {
+  background-color: #d1a054;
+  color: white;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.icon-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.hero-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.hero-shelf-top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  margin-bottom: -1px; /* Hace que los libros encajen justo sobre la imagen */
+}
+
+.hero-text-section {
+  width: 380px;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 400;
+  line-height: 1.05;
+  margin: 0 0 0.8rem 0;
+}
+
+.hero-subtitle {
+  font-family: system-ui, sans-serif;
+  font-size: 0.85rem;
+  color: #938c82;
+  margin-bottom: 1.5rem;
+}
+
+.search-pill {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 50px;
+  padding: 0.7rem 1.2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.search-pill input {
+  border: none;
+  outline: none;
+  background: transparent;
+  margin-left: 0.5rem;
+  width: 100%;
+}
+
+.featured-book img {
+  width: 260px;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 4px 12px 12px 4px;
+  box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.18);
+  display: block;
+}
+
+.side-widgets {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-end;
+}
+
+.widget-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.vertical-label {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: system-ui, sans-serif;
+  font-size: 0.7rem;
+  color: #938c82;
+  letter-spacing: 1px;
+}
+
+.author-card {
+  background-color: #cca362;
+  border-radius: 20px;
+  padding: 1.2rem 1rem;
+  text-align: center;
+  width: 140px;
+  color: #2c2926;
+}
+
+.author-card h5 {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.author-card p {
+  margin: 0.2rem 0 0.8rem 0;
+  font-size: 0.7rem;
+  font-family: system-ui, sans-serif;
+}
+
+.author-card img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.audio-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 1.2rem 1rem;
+  text-align: center;
+  width: 140px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+}
+
+.audio-card h5 {
+  margin: 0 0 0.2rem 0;
+  font-size: 0.85rem;
+}
+
+.audio-card p {
+  margin: 0 0 0.8rem 0;
+  font-size: 0.7rem;
+  font-family: system-ui, sans-serif;
+  color: #938c82;
+}
+
+.audio-disc {
+  width: 40px;
+  height: 40px;
+  background: #2c2926;
+  border-radius: 50%;
+  margin: 0 auto 0.6rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.play-btn-small {
+  background: #2c2926;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+/* ALINEACIÓN PERFECTA DEL LIBRO SOBRE LA REPISA */
+.hero-shelf-top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  margin-bottom: -6px; /* Empuja ligeramente los elementos para asentarse en la madera */
+}
+
+/* CONTENEDOR DE TU IMAGEN REPISA.PNG */
+.shelf-image-wrapper {
+  width: calc(100% + 10rem);
+  margin-left: -5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.shelf-img {
+  width: 100%;
+  height: auto;
+  max-height: 55px; /* Ajusta la altura visible de tu imagen REPISA.png */
+  display: block;
+  object-fit: fill;
+  /* Proyecta una sombra suave hacia abajo respetando la silueta de tu PNG */
+  filter: drop-shadow(0px 12px 10px rgba(0, 0, 0, 0.22));
+}
+
+.shelf-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 100px;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+
+.bestseller-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.bestseller-item img {
+  width: 80px;
+  height: 115px;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: -4px 8px 14px rgba(0, 0, 0, 0.15);
+}
+
+.bestseller-item.rotated img {
+  transform: rotate(6deg);
+}
+
+.book-info h4 {
+  font-size: 0.9rem;
+  margin: 0 0 0.2rem 0;
+}
+
+.book-info p {
+  font-family: system-ui, sans-serif;
+  font-size: 0.75rem;
+  color: #938c82;
+  margin: 0 0 0.6rem 0;
+}
+
+.stars {
+  color: #cca362;
+  font-size: 0.75rem;
+  margin-bottom: 0.2rem;
+}
+
+.btn-buy {
+  background: #ffffff;
+  border: 1px solid #e5dec3;
+  border-radius: 20px;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+
+
+.personaje{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 600px;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.btn-login {
+  background-color: #1a1a1a; /* Fondo oscuro elegante */
+  color: #f7f4ee;            /* Texto claro */
+  border: none;
+  padding: 0.6rem 1.4rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 20px;       /* Bordes redondeados */
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-family: inherit;
+}
+
+/* Efecto al pasar el mouse */
+.btn-login:hover {
+  background-color: #333333;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Efecto al hacer clic */
+.btn-login:active {
+  transform: translateY(0);
+}
