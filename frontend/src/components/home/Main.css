@@ -1,0 +1,60 @@
+.mundos-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1rem 2rem;
+}
+
+.mundos-title {
+  color: #0b2354;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+}
+
+/* GRID DE 4 TARJETAS */
+.mundos-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+
+
+
+/* LA IMAGEN Llenando EL 100% DEL CONTENEDOR */
+.card-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Adapta y recorta la imagen sin deformarla */
+  display: block;
+  transition: filter 0.2s ease, transform 0.25s ease;
+}
+
+.card-banner-img:hover{
+      transform: translateY(-6px);
+}
+
+
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .mundos-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .world-card {
+    height: 180px;
+  }
+}
+
+@media (max-width: 576px) {
+  .mundos-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  
+  .world-card {
+    height: 160px;
+  }
+}
