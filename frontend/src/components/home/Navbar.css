@@ -1,0 +1,148 @@
+.top-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.8rem 2rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+  box-sizing: border-box;
+}
+
+/* SECCIÓN IZQUIERDA */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+.brand-logo img {
+  height: 45px;
+  width: auto;
+  display: block;
+}
+
+/* BARRA DE BÚSQUEDA REDONDEADA */
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid #757575;
+  border-radius: 50px;
+  padding: 0.45rem 1rem;
+  width: 100%;
+  max-width: 320px;
+  background-color: #ffffff;
+}
+
+.search-icon {
+  color: #666666;
+  font-size: 1rem;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 0.85rem;
+  color: #333333;
+  background: transparent;
+}
+
+.search-bar input::placeholder {
+  color: #8c8c8c;
+}
+
+/* SECCIÓN DERECHA */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+  color: #222222;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  transition: opacity 0.2s;
+}
+
+.nav-link:hover {
+  opacity: 0.7;
+}
+
+.icon-orange {
+  color: #ff5500;
+  font-size: 1rem;
+}
+
+/* DIVISORES VERTICALES */
+.nav-divider {
+  width: 1px;
+  height: 24px;
+  background-color: #e0e0e0;
+}
+
+/* ACCIONES DE USUARIO Y CARRITO */
+.nav-user-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.25rem;
+  color: #222222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem;
+  transition: color 0.2s;
+}
+
+.icon-btn:hover {
+  color: #ff5500;
+}
+
+/* BADGE ROJO DEL CARRITO */
+.cart-btn {
+  position: relative;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -4px;
+  right: -6px;
+  background-color: #d9534f;
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* RESPONSIVE */
+@media (max-width: 850px) {
+  .nav-links, .nav-divider {
+    display: none;
+  }
+}

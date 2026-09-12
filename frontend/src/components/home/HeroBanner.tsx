@@ -11,22 +11,22 @@ import mario from '../../assets/MarioVargas.png'
 export const HeroBanner: React.FC = () => {
     return (
         <div className="hero-wrapper">
-            <img className='personaje' src={mario} alt="" />
+            {/* <img className='personaje' src={mario} alt="" /> */}
             {/* BARRA SUPERIOR */}
-            <nav className="top-navbar">
+            {/* <nav className="top-navbar">
                 <div className="brand-logo">
                     <img src={logo} alt="logo" />
                 </div>
-                {/* <div className="nav-pills">
+                <div className="nav-pills">
           <button className="pill-btn active" type="button">📖 Books</button>
           <button className="pill-btn" type="button">🎧 AudioBooks</button>
-        </div> */}
+        </div>
                 <div className="nav-actions">
                     <button className="btn-login" type="button">
                         Iniciar sesión
                     </button>
                 </div>
-            </nav>
+            </nav> */}
 
             {/* CONTENIDO CENTRADO */}
             <div className="hero-content">
@@ -38,34 +38,24 @@ export const HeroBanner: React.FC = () => {
                         <p className="hero-subtitle">Descubre nuestro catálogo recomendado</p>
                     </div>
 
-                    <div className="featured-book">
-                        <img
-                            src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=300&q=80"
-                            alt="The Last Thing He Told Me"
-                        />
-                    </div>
-
-                    <div className="side-widgets">
-                        <div className="widget-wrapper">
-                            <span className="vertical-label">Autor Destacado</span>
-                            <div className="author-card">
-                                <h5>Mario Vargas Llosa</h5>
-                                <p>Obras completas</p>
-                                <img
-                                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80"
-                                    alt="Stephen King"
-                                />
-                            </div>
+                    <div className='content-author'>
+                        <div className="featured-book">
+                            <img
+                                src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=300&q=80"
+                                alt="The Last Thing He Told Me"
+                            />
                         </div>
 
-                        <div className="widget-wrapper">
-                            <span className="vertical-label">Audiolibro popular</span>
-                            <div className="audio-card">
-                                <h5>False Witness: A Novel</h5>
-                                <p>Karin Slaughter</p>
-                                <div className="audio-disc">🎵</div>
-                                <div className="audio-controls">
-                                    <button className="play-btn-small" type="button">▶</button>
+                        <div className="side-widgets">
+                            <div className="widget-wrapper">
+                                <span className="vertical-label">Autor Destacado</span>
+                                <div className="author-card">
+                                    <h5>Mario Vargas Llosa</h5>
+                                    <p>Obras completas</p>
+                                    <img
+                                        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80"
+                                        alt="Stephen King"
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -79,7 +69,7 @@ export const HeroBanner: React.FC = () => {
 
                 {/* SECCIÓN INFERIOR */}
                 <div className="shelf-bottom">
-                    <span className="vertical-label">Más Vendidos</span>
+                    {/* <span className="vertical-label">Más Vendidos</span> */}
 
                     <div className="bestseller-item">
                         <img

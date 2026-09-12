@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Main.css';
+import './Mundo.css';
 
 import harryImg from '../../assets/mundos/HARRYPOTTER_CATEGORIAS.png';
 import luffyImg from '../../assets/mundos/ANIME_CATEGORIAS.png';

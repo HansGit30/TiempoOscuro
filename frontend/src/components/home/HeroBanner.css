@@ -1,10 +1,10 @@
-
 .hero-wrapper {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  padding: 2rem 5rem;
+  align-items: center; /* Centra el contenido horizontalmente */
+  padding: 2rem 2rem;
   box-sizing: border-box;
   -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
   mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
@@ -12,17 +12,17 @@
 
 .top-navbar {
   width: 100%;
-  max-width: 1300px;
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;  /* agregar esto */
-  z-index: 10;          /* agregar esto */
+  position: relative;
+  z-index: 10;
 }
 
-.brand-logo img{
-    width: 250px;
+.brand-logo img {
+  width: 250px;
 }
 
 .nav-pills {
@@ -66,24 +66,31 @@
   border-radius: 50%;
 }
 
+/* CONTENEDOR PRINCIPAL CENTRADO */
 .hero-content {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  max-width: 1150px;   /* un poco más angosto para no chocar con el personaje */
-  margin: 0;           /* ya no se centra, se pega a la izquierda */
+  max-width: 1200px; /* Ancho del bloque centrado */
+  margin: 0 auto;    /* Aplica márgenes automáticos a los lados */
 }
 
 .hero-shelf-top {
   display: flex;
   align-items: flex-end;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
   position: relative;
   z-index: 2;
-  margin-bottom: -1px; /* Hace que los libros encajen justo sobre la imagen */
+  gap: 150px;
+  margin-bottom: -6px; /* Ajusta los libros para posarse sobre la repisa */
+}
+
+.content-author{
+  display: flex;
+  gap: 20px;
 }
 
 .hero-text-section {
@@ -157,6 +164,7 @@
   padding: 1.2rem 1rem;
   text-align: center;
   width: 140px;
+  height: 250px;
   color: #2c2926;
 }
 
@@ -184,6 +192,7 @@
   padding: 1.2rem 1rem;
   text-align: center;
   width: 140px;
+  height: 250px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
 }
 
@@ -221,21 +230,9 @@
   cursor: pointer;
 }
 
-/* ALINEACIÓN PERFECTA DEL LIBRO SOBRE LA REPISA */
-.hero-shelf-top {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  width: 100%;
-  position: relative;
-  z-index: 2;
-  margin-bottom: -6px; /* Empuja ligeramente los elementos para asentarse en la madera */
-}
-
-/* CONTENEDOR DE TU IMAGEN REPISA.PNG */
+/* REPISA AJUSTADA AL ANCHO DEL CONTENEDOR */
 .shelf-image-wrapper {
-  width: calc(100% + 10rem);
-  margin-left: -5rem;
+  width: 100%;
   position: relative;
   z-index: 1;
 }
@@ -243,27 +240,27 @@
 .shelf-img {
   width: 100%;
   height: auto;
-  max-height: 55px; /* Ajusta la altura visible de tu imagen REPISA.png */
+  max-height: 55px;
   display: block;
   object-fit: fill;
-  /* Proyecta una sombra suave hacia abajo respetando la silueta de tu PNG */
   filter: drop-shadow(0px 12px 10px rgba(0, 0, 0, 0.22));
 }
 
+/* ELEMENTOS INFERIORES DISTRIBUIDOS */
 .shelf-bottom {
   display: flex;
   align-items: center;
-  justify-content: start;
-  gap: 100px;
+  justify-content: center;
   width: 100%;
   margin-top: 1.5rem;
+  gap: 100px;
 }
-
 
 .bestseller-item {
   display: flex;
   align-items: center;
   gap: 1rem;
+  z-index: 3;
 }
 
 .bestseller-item img {
@@ -305,39 +302,35 @@
   cursor: pointer;
 }
 
-
-
-.personaje{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 480px;   /* antes: 600px */
-    height: 90vh;   /* antes: 100vh */
-    object-fit: cover;
-    z-index: 0;     /* agregar esto */
+.personaje {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 480px;
+  height: 90vh;
+  object-fit: cover;
+  z-index: 0;
 }
 
 .btn-login {
-  background-color: #1a1a1a; /* Fondo oscuro elegante */
-  color: #f7f4ee;            /* Texto claro */
+  background-color: #1a1a1a;
+  color: #f7f4ee;
   border: none;
   padding: 0.6rem 1.4rem;
   font-size: 0.9rem;
   font-weight: 600;
-  border-radius: 20px;       /* Bordes redondeados */
+  border-radius: 20px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   font-family: inherit;
 }
 
-/* Efecto al pasar el mouse */
 .btn-login:hover {
   background-color: #333333;
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-/* Efecto al hacer clic */
 .btn-login:active {
   transform: translateY(0);
 }

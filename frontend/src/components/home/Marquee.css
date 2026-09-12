@@ -1,0 +1,44 @@
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 0.75rem 0;
+  display: flex;
+  align-items: center;
+  user-select: none;
+  margin-bottom: 100px;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll linear infinite;
+}
+
+.marquee-content {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  padding-right: 3rem; /* Espaciado exacto entre bloques */
+}
+
+.marquee-item {
+  font-size: 0.95rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.marquee-container:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* ANIMACIÓN CONTINUA SIN ESPACIOS BLANCOS */
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
