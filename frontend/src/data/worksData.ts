@@ -6,38 +6,44 @@ export interface WorkCategory {
   imageUrl: string;
   isHighlight?: boolean;
 }
+// 1. Importas las imágenes de la carpeta assets/mundos
+import harryPotterImg from '../assets/mundos/HARRYPOTTER_CATEGORIAS.png';
+import mangasImg from '../assets/mundos/ANIME_CATEGORIAS.png';
+import mundoInfantilImg from '../assets/mundos/MUNDOINFANTIL_CATEGORIAS.png';
+import fondoPropioImg from '../assets/mundos/FONDOPROPIO_CATEGORIAS.png';
 
+// 2. Definición de la constante
 export const WORKS_DATA: WorkCategory[] = [
   {
-    id: 'series',
-    title: 'SERIES',
+    id: 'harry-potter',
+    title: 'HARRY POTTER',
     countOrBadge: '↗',
-    description: 'We craft compelling series driven by empathy and immersion, telling stories uniquely our own across diverse genres.',
-    imageUrl: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=800',
+    description: 'Explora una colección mágica inspirada en el mundo de la hechicería y sus personajes icónicos.',
+    imageUrl: harryPotterImg,
     isHighlight: true,
   },
   {
-    id: 'movies',
-    title: 'MOVIES',
-    countOrBadge: '3',
-    description: 'We create films that deepen stories through a fresh perspective, leaving a lasting impression on audiences.',
-    imageUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800',
+    id: 'mangas',
+    title: 'MANGAS',
+    countOrBadge: '↗',
+    description: 'Historias llenas de acción, emoción e imaginación directa del cómic japonés.',
+    imageUrl: mangasImg,
     isHighlight: false,
   },
   {
-    id: 'animation',
-    title: 'ANIMATION',
-    countOrBadge: '5',
-    description: 'We expand stories through animation blending imagination and emotion, loved across generations and borders.',
-    imageUrl: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800',
+    id: 'infantil',
+    title: 'MUNDO INFANTIL',
+    countOrBadge: '↗',
+    description: 'Aventuras diseñadas para despertar la curiosidad y alegría de los más pequeños.',
+    imageUrl: mundoInfantilImg,
     isHighlight: false,
   },
   {
-    id: 'others',
-    title: 'OTHERS',
-    countOrBadge: '1',
-    description: 'We showcase innovative content bridging various categories and digital formats.',
-    imageUrl: 'https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=800',
+    id: 'fondo-propio',
+    title: 'FONDO PROPIO',
+    countOrBadge: '↗',
+    description: 'Obras y publicaciones exclusivas de nuestro catálogo editorial.',
+    imageUrl: fondoPropioImg,
     isHighlight: false,
   },
 ];

@@ -8,13 +8,12 @@ export const Navbar = forwardRef<HTMLElement>((_, ref) => {
         TIEMPO<span>OSCURO</span>
       </div>
       <ul className="nav-menu">
-        <li><a href="#works">WORKS</a></li>
-        <li><a href="#about">ABOUT</a></li>
-        <li><a href="#news">NEWS</a></li>
-        <li><a href="#contact">CONTACT</a></li>
+        <li><a href="#works">MUNDOS</a></li>
+        <li><a href="#about">NOSOTROS</a></li>
+        <li><a href="#news">LIBROS</a></li>
       </ul>
       <div className="lang-switch">
-        Iniciar <span className="active">Sesion</span>
+        <span className="active">INCIAR SESION</span>
       </div>
     </nav>
   );

@@ -20,21 +20,32 @@ export const AboutSection: React.FC = () => {
           strokeDashoffset: pathLength,
         });
 
-        // Ocultar por defecto para evitar el punto inicial estático
         gsap.set(strokeContainerRef.current, { opacity: 0 });
 
-        // Animación sincronizada con el scroll
+        // 1. Dibujado de la línea con el scroll
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: sectionRef.current,
             start: 'top 75%',
-            end: 'bottom bottom',
+            end: 'bottom 40%',
             scrub: 1,
           },
         });
 
         tl.to(strokeContainerRef.current, { opacity: 1, duration: 0.1 })
           .to(strokePathRef.current, { strokeDashoffset: 0, ease: 'none' }, '<');
+
+        // 2. Desvanecer la línea antes de tocar la sección #news
+        gsap.to(strokeContainerRef.current, {
+          opacity: 0,
+          ease: 'power1.out',
+          scrollTrigger: {
+            trigger: '#news',
+            start: 'top 90%', // Empieza a borrarse justo cuando asoma la sección NEWS
+            end: 'top 65%',   // Desaparece por completo antes del contenido
+            scrub: true,
+          },
+        });
       }
     }, sectionRef);
 
@@ -45,12 +56,17 @@ export const AboutSection: React.FC = () => {
     <section className="about-section" id="about" ref={sectionRef}>
       {/* Contenedor del trazo curvo en el lateral izquierdo */}
       <div className="green-stroke-left" ref={strokeContainerRef}>
-        <svg viewBox="0 0 300 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          viewBox="0 0 300 800"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+        >
           <path
             ref={strokePathRef}
             d="M 280 -50 C 50 200, 50 600, 280 850"
             stroke="#00e676"
-            strokeWidth="50"
+            strokeWidth="40" /* Ajustado de 50 a 16 para que se vea elegante y delgado */
             strokeLinecap="round"
           />
         </svg>

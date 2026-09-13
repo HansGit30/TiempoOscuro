@@ -9,55 +9,72 @@ gsap.registerPlugin(ScrollTrigger);
 export const WorksSection: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const strokePathRef = useRef<SVGPathElement>(null);
+  const strokeSvgRef = useRef<SVGSVGElement>(null);
   const row2Ref = useRef<HTMLDivElement>(null);
   const topImagesRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // 1. Animación del trazo SVG (inicia con el bucle superior)
+      // 1. Inicialización e interacción del trazo verde
       if (strokePathRef.current) {
         const pathLength = strokePathRef.current.getTotalLength();
 
+        // Ocultar la línea por completo al inicio
         gsap.set(strokePathRef.current, {
           strokeDasharray: pathLength,
           strokeDashoffset: pathLength,
         });
 
+        // Animación progresiva de dibujado del trazo
         gsap.to(strokePathRef.current, {
           strokeDashoffset: 0,
           ease: 'none',
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top 95%',
-            end: 'bottom bottom',
-            scrub: 1,
+            start: 'top 80%',
+            end: '35% top',
+            scrub: true,
           },
         });
       }
 
-      // 2. Animación de las tarjetas: Colapso de las imágenes de la Fila 1
+      // 2. Desvanecer la línea antes de cruzar la tarjeta de Mundo Infantil
+      if (strokeSvgRef.current) {
+        gsap.to(strokeSvgRef.current, {
+          opacity: 0,
+          ease: 'power1.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: '15% top', // Comienza a desvanecer tempranamente
+            end: '30% top',   // Se vuelve totalmente transparente antes de la tarjeta
+            scrub: true,
+          },
+        });
+      }
+
+      // 3. Colapso de imágenes superiores
       gsap.to(topImagesRef.current, {
         height: 0,
         opacity: 0,
         marginBottom: 0,
-        ease: 'none',
+        ease: 'power1.inOut',
         scrollTrigger: {
           trigger: sectionRef.current,
           start: 'top top',
-          end: '40% center',
+          end: '50% center',
           scrub: 1,
         },
       });
 
-      // 3. Animación de las tarjetas: Elevação / Solapamiento de la Fila 2
+      // 4. Elevación de la Fila 2
       if (row2Ref.current) {
         gsap.to(row2Ref.current, {
-          y: -180,
-          ease: 'none',
+          y: -140,
+          ease: 'power1.inOut',
           scrollTrigger: {
             trigger: sectionRef.current,
             start: 'top top',
-            end: '70% bottom',
+            end: '65% bottom',
             scrub: 1,
           },
         });
@@ -72,24 +89,29 @@ export const WorksSection: React.FC = () => {
 
   return (
     <section className="works-section" id="works" ref={sectionRef}>
-      {/* Contenedor del trazo con bucle en esquina superior derecha */}
       <div className="green-stroke-bg">
-        <svg viewBox="0 0 500 800" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <svg
+          ref={strokeSvgRef}
+          viewBox="0 0 500 800"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+        >
           <path
             ref={strokePathRef}
             d="M 380 -20 C 380 180, 220 220, 220 100 C 220 -20, 420 -10, 420 180 C 420 400, 150 500, 50 750"
             stroke="#00e676"
-            strokeWidth="50"
+            strokeWidth="14"
             strokeLinecap="round"
           />
         </svg>
       </div>
 
       <div className="works-container">
-        <h2 className="works-title">WORKS</h2>
+        <h2 className="works-title">MUNDOS</h2>
 
         <div className="works-stack">
-          {/* Fila 1 (animación de compresión de imagen) */}
+          {/* Fila 1 */}
           <div className="works-row row-1">
             {row1Data.map((work, index) => (
               <div key={work.id} className="work-card">
@@ -110,7 +132,7 @@ export const WorksSection: React.FC = () => {
             ))}
           </div>
 
-          {/* Fila 2 (animación de desplazamiento hacia arriba) */}
+          {/* Fila 2 */}
           <div className="works-row row-2" ref={row2Ref}>
             {row2Data.map((work) => (
               <div key={work.id} className="work-card">

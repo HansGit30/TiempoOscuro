@@ -3,6 +3,8 @@ import Lenis from '@studio-freight/lenis';
 import { HeroSection } from '../components/Inicio/HeroSection';
 import WorksSection from '../components/Inicio/WorksSection';
 import AboutSection from '../components/Inicio/AboutSection';
+import NewsSection from '../components/Inicio/NewsSection';
+import Footer from '../components/Inicio/Footer';
 
 
 export const App: React.FC = () => {
@@ -27,7 +29,9 @@ export const App: React.FC = () => {
     <main className="app-container">
       <HeroSection />
       <WorksSection />
-      <AboutSection></AboutSection>
+      <AboutSection />
+      <NewsSection />
+      <Footer />
     </main>
   );
 };

@@ -120,3 +120,24 @@
     gap: 3rem;
   }
 }
+
+
+.about-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.green-stroke-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.green-stroke-left svg {
+  width: 100%;
+  height: 100%;
+}
