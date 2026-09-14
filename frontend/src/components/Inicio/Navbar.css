@@ -44,3 +44,16 @@
 .lang-switch .active {
   color: #000000;
 }
+
+
+.lang-switch a {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+/* Opcional: efecto visual al pasar el cursor */
+.lang-switch a:hover {
+  opacity: 0.8;
+}

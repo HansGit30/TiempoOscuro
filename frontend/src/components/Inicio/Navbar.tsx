@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 export const Navbar = forwardRef<HTMLElement>((_, ref) => {
@@ -10,10 +11,12 @@ export const Navbar = forwardRef<HTMLElement>((_, ref) => {
       <ul className="nav-menu">
         <li><a href="#works">MUNDOS</a></li>
         <li><a href="#about">NOSOTROS</a></li>
-        <li><a href="#news">LIBROS</a></li>
+        <li><Link to="/libros" className="active">LIBROS</Link></li>
       </ul>
       <div className="lang-switch">
-        <span className="active">INCIAR SESION</span>
+        <Link to="/login" className="active">
+          INICIAR SESIÓN
+        </Link>
       </div>
     </nav>
   );
