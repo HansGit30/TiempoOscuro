@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+const API_BASE_URL = 'https://backtiempooscuro.onrender.com';
+
 interface RegisterFormProps {
   onSwitchToLogin: () => void;
 }
@@ -18,8 +20,7 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ onSwitchToLogin }) =
     setErrorMsg('');
 
     try {
-      // Reemplaza esta URL con la ruta de tu endpoint en FastAPI para registrar la solicitud
-      const response = await fetch('http://localhost:8000/auth/request-supplier', {
+      const response = await fetch(`${API_BASE_URL}/auth/request-supplier`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

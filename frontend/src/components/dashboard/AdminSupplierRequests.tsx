@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+const API_BASE_URL = 'https://backtiempooscuro.onrender.com';
+
 interface SupplierRequest {
   id: string;
   company_name: string;
@@ -16,11 +18,11 @@ export const AdminSupplierRequests: React.FC = () => {
   // 1. Obtener solicitudes pendientes al cargar el componente
   const fetchRequests = async () => {
     try {
-      const token = localStorage.getItem('token'); // Corregido a 'token'
+      const token = localStorage.getItem('token');
       
       console.log("Token enviado:", token);
 
-      const response = await fetch('http://localhost:8000/admin/supplier-requests', {
+      const response = await fetch(`${API_BASE_URL}/admin/supplier-requests`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -51,8 +53,8 @@ export const AdminSupplierRequests: React.FC = () => {
     setMessage('');
 
     try {
-      const token = localStorage.getItem('token'); // Corregido a 'token'
-      const response = await fetch(`http://localhost:8000/admin/approve-supplier/${id}`, {
+      const token = localStorage.getItem('token');
+      const response = await fetch(`${API_BASE_URL}/admin/approve-supplier/${id}`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`
