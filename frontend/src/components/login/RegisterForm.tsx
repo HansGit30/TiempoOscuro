@@ -10,15 +10,38 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ onSwitchToLogin }) =
   const [publishers, setPublishers] = useState('');
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    setErrorMsg('');
 
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      // Reemplaza esta URL con la ruta de tu endpoint en FastAPI para registrar la solicitud
+      const response = await fetch('http://localhost:8000/auth/request-supplier', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          company_name: company,
+          email: email,
+          publishers_handled: publishers,
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.detail || 'Error al enviar la solicitud');
+      }
+
       setSubmitted(true);
-    }, 800);
+    } catch (err: any) {
+      setErrorMsg(err.message || 'Ocurrió un error inesperado');
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {
@@ -57,6 +80,12 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ onSwitchToLogin }) =
       <p className="form-description">
         Ingresa el correo de tu empresa y las editoriales que distribuyes para solicitar el alta.
       </p>
+
+      {errorMsg && (
+        <div style={{ color: '#ff5252', marginBottom: '12px', fontSize: '14px', fontWeight: 'bold' }}>
+          {errorMsg}
+        </div>
+      )}
 
       <form onSubmit={handleSubmit} className="login-form">
         <label htmlFor="company" className="input-label">NOMBRE DE LA EMPRESA</label>

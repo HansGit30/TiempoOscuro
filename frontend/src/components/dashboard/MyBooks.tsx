@@ -89,6 +89,7 @@ export const MyBooks: React.FC = () => {
                 <span style={{ fontSize: '0.80rem', backgroundColor: '#f1f5f9', padding: '4px 8px', borderRadius: '4px' }}>
                   Stock: {book.stock}
                 </span>
+                <p>Editorial: {book.publishers?.name}</p>
               </div>
             </div>
           ))}

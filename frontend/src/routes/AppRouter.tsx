@@ -1,12 +1,12 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import Home from '../pages/Home';
 import StudioNPage from '../pages/Inicio';
 import Login from '../pages/Login';
 import { LayoutDashboard } from '../layouts/LayoutDashboard';
 import DashboardPage from '../pages/dashboard';
 import { CatalogPage } from '../pages/CatalogPage';
 import MyBooks from '../components/dashboard/MyBooks';
-import UsersManagement from '../components/dashboard/admin/UsersManagement';
+import UsersManagement from '../components/dashboard/UsersManagement';
+import { AdminSupplierRequests } from '../components/dashboard/AdminSupplierRequests'
 // import { CatalogPage } from '../pages/CatalogPage';
 // import { PosPage } from '../pages/PosPage';
 // import { PublisherDashboardPage } from '../pages/PublisherDashboardPage';
@@ -36,7 +36,7 @@ export const AppRouter = () => {
 
           {/* Sub-rutas exclusivas para Administrador */}
           <Route path="users" element={<UsersManagement />} />
-          <Route path="approvals" element={<h2>Aprobación de Solicitudes</h2>} />
+          <Route path="approvals" element={<AdminSupplierRequests />} />
           <Route path="reports" element={<h2>Reportes Generales</h2>} />
           
         </Route>
