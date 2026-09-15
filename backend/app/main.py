@@ -13,7 +13,8 @@ app.include_router(auth.router)
 origins = [
     "http://localhost:5173",  # Puerto por defecto de Vite
     "http://localhost:3000",
-    "http://127.0.0.1:5173"
+    "http://127.0.0.1:5173",
+    "https://tiempo-oscuro-five.vercel.app"
 ]
 
 app.add_middleware(
