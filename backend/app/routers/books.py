@@ -53,8 +53,8 @@ def get_supplier_books(current_user: dict = Depends(get_current_user)):
             
         publisher_id = publishers_list[0]["id"]
         
-        # 2. Filtrar los libros de ese publisher_id
-        books_res = supabase_admin.from_("books").select("*").eq("publisher_id", publisher_id).execute()
+        # 2. Filtrar los libros incluyendo el objeto de la editorial relacionada
+        books_res = supabase_admin.from_("books").select("*, publishers(id, name)").eq("publisher_id", publisher_id).execute()
         
         return books_res.data if books_res and books_res.data else []
     except HTTPException as he:
@@ -64,3 +64,6 @@ def get_supplier_books(current_user: dict = Depends(get_current_user)):
         traceback.print_exc()
         print("=========================================================\n")
         raise HTTPException(status_code=500, detail=str(e))
+
+
+

@@ -11,6 +11,11 @@ class LoginRequest(BaseModel):
     email: EmailStr
     password: str
 
+class SupplierRequestSchema(BaseModel):
+    company_name: str
+    email: EmailStr
+    publishers_handled: str
+
 @router.post("/login")
 def login(credentials: LoginRequest):
     try:
@@ -54,10 +59,10 @@ def get_user_profile(user_id: str):
         raise HTTPException(status_code=500, detail=str(e))
 
 def get_current_user(credentials: HTTPAuthorizationCredentials = Depends(security)):
-    """Valida el token JWT usando Supabase y recupera la información del perfil del usuario"""
+    """Valida el token JWT usando Supabase Admin y recupera la información del perfil del usuario"""
     token = credentials.credentials
     try:
-        response = supabase.auth.get_user(token)
+        response = supabase_admin.auth.get_user(token)
         
         if not response or not response.user:
             raise HTTPException(
@@ -88,3 +93,17 @@ def get_current_user(credentials: HTTPAuthorizationCredentials = Depends(securit
             detail=f"No se pudo autenticar al usuario: {str(e)}",
             headers={"WWW-Authenticate": "Bearer"},
         )
+
+@router.post("/request-supplier")
+def request_supplier(data: SupplierRequestSchema):
+    try:
+        response = supabase_admin.from_("supplier_requests").insert({
+            "company_name": data.company_name,
+            "email": data.email,
+            "publishers_handled": data.publishers_handled,
+            "status": "pending"
+        }).execute()
+        return {"message": "Solicitud enviada correctamente"}
+    except Exception as e:
+        traceback.print_exc()
+        raise HTTPException(status_code=500, detail=str(e))
